@@ -1,0 +1,88 @@
+{% extends "master.html" %}
+
+{% block title %}
+    TKI 2022
+{% endblock %}
+
+{% block style %}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+a{
+    text-decoration: none;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 38vh;
+    padding: 30px;
+    background-color: #141c55;
+    color: #ffffff;
+    font-size: 1.5em;
+}
+p{
+    min-height: 10vh;
+    background-color: #f6f6f6;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-left: 70px;
+    padding-right: 70px;
+    font-size: 1.2em;
+}
+btn{
+    display: flex;
+    align-items: center;
+    background-color: #141c55;
+    color: white;
+    transition: all 0.3s ease;
+    padding: 40px;
+    border-radius: 20px;
+    height: 20px;
+    font-size: 20px;
+    transition: padding 0.4s;
+}
+btn:hover{
+    background-color: #85b8df;
+    padding: 45px;
+}
+.content{
+    width: 100%;
+    min-height: 52vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: flex-start;
+    gap: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 70px;
+    padding-top: 40px;
+    cursor: pointer;
+    background-color: #f6f6f6;
+}
+{% endblock %}
+
+{% block content %}
+    <div class="header">
+        <h1 class="teks-header">Teknik Komputer Informasi 2022</h1>
+    </div>
+    <p>Klik pada nama mahasiswa untuk informasi lebih lanjut</p>
+    <div class="content">
+        {% for x in sometki %}
+        <a href="details/{{ x.id }}">
+            <btn>{{ x.firstname }} {{ x.lastname }}</btn>
+        </a>
+        {% endfor %}
+    </div>
+{% endblock %}

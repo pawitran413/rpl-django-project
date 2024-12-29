@@ -1,0 +1,20 @@
+{% extends "master.html" %}
+
+{% block title %}
+    TKI 2022
+{% endblock %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block content %}
+<ul>
+    {% for x in idmhs.courses.all %}
+        <li>{{x.matkul}}</li>
+    {% endfor %}
+</ul>
+<a href="/tki/details/{{idmhs.id}}">
+    back
+</a>
+{% endblock %}

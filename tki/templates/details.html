@@ -1,0 +1,115 @@
+{% extends "master.html" %}
+
+{% block title %}
+    TKI 2022
+{% endblock %}
+
+{% block style %}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bawah{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 70vh;
+    width: 100vw;
+    padding: 40px;
+    background-color: #f6f6f6;
+    gap: 30px;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+    height: 30vh;
+    padding: 30px;
+    background-color: #141c55;
+    color: #ffffff;
+    font-size: 1.5em;
+}
+.content{
+    display: flex;
+    gap: 20px;
+    line-height: 2;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.data{
+    display: flex;
+    flex-direction: column;
+}
+.tombol{
+    display: flex;
+    gap: 20px;
+}
+.back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #141c55;
+    color: white;
+    transition: all 0.3s ease;
+    padding: 30px;
+    height: 15px;
+    border-radius: 20px;
+    font-size: 20px;
+}
+.back:hover{
+    background-color: #85b8df;
+}
+a{
+    text-decoration: none;
+}
+p{
+    font-size: 1.5em;
+}
+{% endblock %}
+
+{% block content %}
+    <div class="header">
+        <h1>
+            Tentang {{sometki.firstname}}
+        </h1>
+    </div>
+    <div class="bawah">
+        <div class="content">
+            <div class="form">
+                <p>NIM: </p>
+                <p>Nama: </p>
+                <p>Angkatan: </p>
+                <p>Fakultas: </p>
+                <p>Prodi: </p>
+                <p>Status: </p>
+            </div>
+            <div class="data">
+                <p>{{sometki.nim}}</p>
+                <p>{{sometki.firstname}} {{sometki.lastname}}</p>
+                <p>{{sometki.angkatan}}</p>
+                <p>{{sometki.fakultas}}</p>
+                <p>{{sometki.prodi}}</p>
+                <p>{{sometki.status}}</p>
+            </div>
+        </div>
+        <div class="tombol">
+            <a href="/tki">
+                <btn class="back">Kembali</btn>
+            </a>
+            <a href="{{ sometki.id }}/matkul">
+                <btn class="back">Kelas yang diambil</btn>
+            </a>
+        </div>
+    </div>
+{% endblock %}
